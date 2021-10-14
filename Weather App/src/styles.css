@@ -1,0 +1,91 @@
+h1 {
+	font-size: 60px;
+	color: #006ec5;
+	font-weight: 400;
+}
+
+h2 {
+	color: #5a6275;
+	text-align: center;
+	font-size: 80px;
+	max-width: 200px;
+	margin-right: 0;
+	font-weight: 500;
+}
+
+h1,
+h2 {
+	font-family: "Roboto";
+}
+
+.main-card {
+	background: #f5f9fd;
+	max-width: 700px;
+	height: 605px;
+	margin: auto;
+}
+
+.search-btn {
+	width: 100%;
+}
+
+.city-option {
+	text-align: center;
+	padding: 0;
+	margin-top: 5px;
+}
+
+.celsius-farenheight {
+	font-size: 30px;
+	position: relative;
+	right: 18px;
+}
+
+.current-date {
+	margin: 25px 0 0 15px;
+	font-size: 20px;
+	color: #939aa9;
+	font-family: "Noto Sans JP", sans-serif;
+}
+.update-button {
+	background: transparent;
+	color: #006ec5;
+	border: none;
+}
+
+.main-image {
+	width: 230px;
+	padding-left: 0;
+	position: relative;
+	right: 55px;
+}
+
+.weather-message {
+	margin: 35px 14px 35px 0;
+	text-align: center;
+	font-size: 16px;
+	padding: 0;
+	color: #5a6275;
+	font-family: "Noto Sans JP", sans-serif;
+}
+
+.weather-stats {
+	margin-left: 40px;
+	text-align: left;
+	font-size: 20px;
+	color: #939aa9;
+	font-family: "Noto Sans JP", sans-serif;
+}
+
+.weekly-forecast {
+	padding-top: 5px;
+	height: 245px;
+	font-family: "Roboto";
+	transition: background-color 200ms;
+	background: #cbdffb;
+}
+
+.dow-icon {
+	width: 70px;
+	margin: 20px auto 30px;
+}
