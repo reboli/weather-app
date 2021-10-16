@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Roboto:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="src/styles.css" />
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin
+		/>
+
+		<script
+			src="https://kit.fontawesome.com/7cbb81c895.js"
+			crossorigin="anonymous"
+		></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<title>Weather App</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="card main-card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-5">
+							<h1>Valencia</h1>
+						</div>
+						<div class="col">
+							<div class="search-engine">
+								<form id="search-form">
+									<div class="row">
+										<div class="col">
+											<input
+												type="text"
+												placeholder="Enter city here..."
+												autofocus="on"
+												class="form-control search-bar"
+												id="search-text-input"
+											/>
+											<div class="row">
+												<div class="col city-option">
+													<a href=""> London </a>
+												</div>
+
+												<div class="col city-option">
+													<a href="" class="">Berlin</a>
+												</div>
+												<div class="col city-option">
+													<a href="" class="">Madrid</a>
+												</div>
+												<div class="col city-option">
+													<a href="" class="">Lisbon</a>
+												</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<input
+												type="submit"
+												class="btn btn-primary search-btn"
+												value="Search"
+												id=""
+											/>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-3" style="padding-right: 0">
+							<h2>
+								<span class="temperature" id="temperature">24</span>
+							</h2>
+							<div class="current-date">
+								<div class="today">Saturday</div>
+								<div class="time">8:23pm</div>
+								<div class="current-location">
+									Current
+									<button class="update-button">
+										<i class="fas fa-sync-alt update-button"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-2" style="padding: 0">
+							<span class="celsius-farenheight">
+								<a href="" id="celsius-option" class="celsius">°C</a>
+								|
+								<a href="" id="farenheight-option" class="farenheight"
+									>°F</a
+								></span
+							>
+						</div>
+						<div class="col-3" style="padding: 0">
+							<img
+								src="images/partly cloudy.png"
+								alt="partly cloudy icon"
+								class="main-image"
+							/>
+						</div>
+						<div class="col-4" style="padding-left: 0">
+							<div class="weather-message right-section">
+								<em>Don't forget your sunscreen!</em>
+							</div>
+							<br />
+							<div class="weather-stats right-section">
+								<div id="description">Partly cloudy</div>
+								<div id="wind">Wind: 22km/h</div>
+								<div id="humidity">Humidity: 80%</div>
+							</div>
+						</div>
+					</div>
+					<hr />
+					<div class="row flex-nowrap">
+						<div class="col" style="padding: 0 0 0 12px">
+							<div class="card text-center weekly-forecast">
+								<div class="card-body">
+									<h5 class="card-title">Tue</h5>
+									<h6 class="card-subtitle mb-2 text-muted">07/27</h6>
+									<img
+										src="images/sunny.png"
+										alt="sun"
+										class="dow-icon"
+									/>
+									<p class="card-text">
+										<strong>31°C</strong> | 22°C
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col" style="padding: 0">
+							<div class="card text-center weekly-forecast">
+								<div class="card-body">
+									<h5 class="card-title">Wed</h5>
+									<h6 class="card-subtitle mb-2 text-muted">07/28</h6>
+									<img
+										src="images/sunny.png"
+										alt="sun"
+										class="dow-icon"
+									/>
+									<p class="card-text">
+										<strong>31°C</strong> | 24°C
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col" style="padding: 0">
+							<div class="card text-center weekly-forecast">
+								<div class="card-body">
+									<h5 class="card-title">Thu</h5>
+									<h6 class="card-subtitle mb-2 text-muted">07/29</h6>
+									<img
+										src="images/sunny.png"
+										alt="sun"
+										class="dow-icon"
+									/>
+									<p class="card-text">
+										<strong>35°C</strong> | 27°C
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col" style="padding: 0">
+							<div class="card text-center weekly-forecast">
+								<div class="card-body">
+									<h5 class="card-title">Fri</h5>
+									<h6 class="card-subtitle mb-2 text-muted">07/30</h6>
+									<img
+										src="images/sunny.png"
+										alt="sun"
+										class="dow-icon"
+									/>
+									<p class="card-text">
+										<strong>41°C</strong> | 32°C
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col" style="padding: 0 12px 0 0">
+							<div class="card text-center weekly-forecast">
+								<div class="card-body">
+									<h5 class="card-title">Sat</h5>
+									<h6 class="card-subtitle mb-2 text-muted">07/31</h6>
+									<img
+										src="images/sunny.png"
+										alt="sun"
+										class="dow-icon"
+									/>
+									<p class="card-text">
+										<strong>33°C</strong> | 23°C
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="src/javascript.js"></script>
+	</body>
+</html>
