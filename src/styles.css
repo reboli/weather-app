@@ -80,8 +80,8 @@ h2 {
 .weekly-forecast {
 	padding-top: 5px;
 	height: 245px;
+	max-width: 130px;
 	font-family: "Roboto";
-	transition: background-color 200ms;
 	background: #cbdffb;
 }
 
