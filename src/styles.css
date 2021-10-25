@@ -9,7 +9,7 @@ h2 {
 	text-align: center;
 	font-size: 80px;
 	max-width: 200px;
-	margin-right: 0;
+	margin-left: 30px;
 	font-weight: 500;
 }
 
@@ -20,7 +20,7 @@ h2 {
 
 .main-card {
 	background: #f5f9fd;
-	max-width: 760px;
+	max-width: 755px;
 	height: 605px;
 	margin: auto;
 }
@@ -35,15 +35,27 @@ h2 {
 	margin-top: 5px;
 }
 
-.celsius-farenheight {
+.celsius-fahrenheit {
 	font-size: 30px;
 	position: relative;
-	right: 18px;
+	top: -40px;
+	right: 10px;
+}
+
+.celsius-fahrenheit .active {
+	color: #5a6275;
+	cursor: default;
+}
+
+.celsius,
+.fahrenheit {
+	text-decoration: none;
+	font-weight: 450;
 }
 
 .current-date {
-	margin: 25px 0 0 15px;
-	font-size: 20px;
+	margin: 20px 0 0 15px;
+	font-size: 22px;
 	color: #939aa9;
 	font-family: "Noto Sans JP", sans-serif;
 }
@@ -56,14 +68,12 @@ h2 {
 .main-image {
 	width: 230px;
 	padding-left: 0;
-	position: relative;
-	right: 55px;
 }
 
 .weather-message {
-	margin: 35px 14px 35px 0;
+	margin: 35px 20px 30px 0;
 	text-align: center;
-	font-size: 16px;
+	font-size: 17px;
 	padding: 0;
 	color: #5a6275;
 	font-family: "Noto Sans JP", sans-serif;
@@ -72,11 +82,14 @@ h2 {
 .weather-stats {
 	margin-left: 40px;
 	text-align: left;
-	font-size: 20px;
+	font-size: 22px;
 	color: #939aa9;
 	font-family: "Noto Sans JP", sans-serif;
 }
 
+.description {
+	text-transform: capitalize;
+}
 .weekly-forecast {
 	padding-top: 5px;
 	height: 245px;

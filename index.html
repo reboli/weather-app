@@ -85,32 +85,42 @@
 					</div>
 
 					<div class="row">
-						<div class="col-3" style="padding-right: 0">
+						<div class="col-4" style="padding-right: 0">
 							<h2>
-								<span class="temperature" id="temperature">24<span class="celsius-farenheight">
-								<a href="" id="celsius-option" class="celsius">°C</a>
-								|
-								<a href="" id="farenheight-option" class="farenheight"
-									>°F</a
-								></span</span>
+								<span class="temperature" id="temperature">24</span>
+								<span class="celsius-fahrenheit"
+									><a
+										href=""
+										id="celsius-option"
+										class="celsius active"
+										>°C</a
+									>
+									|
+									<a href="" id="fahrenheit-option" class="fahrenheit"
+										>°F</a
+									>
+								</span>
 							</h2>
 							<div class="current-date">
-								<div class="today">Saturday</div>
-								<div class="time">8:23pm</div>
-								<div class="current-location">
-									Current
-									<button class="update-button">
-										<i class="fas fa-sync-alt update-button"></i>
-									</button>
+								<div>Last updated:</div>
+								<span class="date">Saturday, 8:32pm</span>
+								<span
+									><button class="update-button">
+										<i
+											class="fas fa-sync-alt update-button"
+										></i></button
+								></span>
+								<div id="description" class="description">
+									Partly cloudy
 								</div>
 							</div>
 						</div>
-					
-						<div class="col-3" style="padding: 0">
+
+						<div class="col-4" style="padding: 0">
 							<img
-								src="images/partly cloudy.png"
 								alt="partly cloudy icon"
 								class="main-image"
+								id="main-image"
 							/>
 						</div>
 						<div class="col-4" style="padding-left: 0">
@@ -119,8 +129,7 @@
 							</div>
 							<br />
 							<div class="weather-stats right-section">
-								<div id="description">Partly cloudy</div>
-								<div id="wind">Wind: 22km/h</div>
+								<div id="wind">Wind: 2km/h</div>
 								<div id="humidity">Humidity: 80%</div>
 							</div>
 						</div>
@@ -145,8 +154,13 @@
 						</div>
 					</div>
 				</div>
-				<a href="https://github.com/reboli/weather-app" class=""
-					>https://github.com/reboli/weather-app</a
+				<span>
+					<a
+						href="https://github.com/reboli/weather-app"
+						class=""
+						target="_blank"
+						>Open-source code</a
+					>, by Rebecca Oliver</span
 				>
 			</div>
 		</div>
