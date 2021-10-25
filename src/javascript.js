@@ -25,6 +25,48 @@ function formatDate(timestamp) {
 	return `${day}, ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+	let forecastElement = document.querySelector("#forecast");
+
+	let forecastHTML = `<div class="row flex-nowrap">`;
+	let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+	days.forEach(function (day) {
+		forecastHTML =
+			forecastHTML +
+			`
+							<div class="col" style="padding: 0 0 0 12px">
+								<div class="card text-center weekly-forecast">
+									<div class="card-body">
+										<h5 class="card-title">${day}</h5>
+										<h6 class="card-subtitle mb-2 text-muted">
+											07/27
+										</h6>
+										<img
+											src="images/sunny.png"
+											alt="sun"
+											class="dow-icon"
+										/>
+										<p class="card-text">
+											<strong>31°C</strong> | 22°C
+										</p>
+									</div>
+								</div>
+							</div>
+						`;
+	});
+	forecastHTML = forecastHTML + `</div>`;
+	forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+	console.log(coordinates);
+	let apiKey = "40351ed1d8651874e2b8721c2af41209";
+	let lat = coordinates.lat;
+	let lon = coordinates.lon;
+
+	let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+}
+
 function displayWeather(response) {
 	let cityElement = document.querySelector("h1");
 	let temperatureElement = document.querySelector("#temperature");
@@ -52,6 +94,8 @@ function displayWeather(response) {
 		"alt",
 		response.data.weather[0].description
 	);
+
+	getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -96,3 +140,4 @@ let celsiusLink = document.querySelector("#celsius-option");
 celsiusLink.addEventListener("click", showCelsius);
 
 search("Valencia");
+displayForecast();
