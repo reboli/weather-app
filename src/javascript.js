@@ -1,7 +1,3 @@
-//Feature #2 Add a search engine, when searching for a city (i.e. Paris), display the city name on the page after the user submits the form.
-
-//Bonus Feature Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit. When clicking on Celsius, it should convert it back to Celsius.
-
 function formatDate(timestamp) {
 	let date = new Date(timestamp);
 	let hours = date.getHours();
@@ -25,34 +21,51 @@ function formatDate(timestamp) {
 	return `${day}, ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function formatDay(timestamp) {
+	let date = new Date(timestamp * 1000);
+	let day = date.getDay();
+	let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+	return days[day];
+}
+
+function displayForecast(response) {
+	let forecast = response.data.daily;
+	console.log(response.data.daily);
 	let forecastElement = document.querySelector("#forecast");
 
 	let forecastHTML = `<div class="row flex-nowrap">`;
-	let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
-	days.forEach(function (day) {
-		forecastHTML =
-			forecastHTML +
-			`
+
+	forecast.forEach(function (forecastDay, index) {
+		if (index < 5) {
+			forecastHTML =
+				forecastHTML +
+				`
 							<div class="col" style="padding: 0 0 0 12px">
 								<div class="card text-center weekly-forecast">
 									<div class="card-body">
-										<h5 class="card-title">${day}</h5>
+										<h5 class="card-title">${formatDay(forecastDay.dt)}</h5>
 										<h6 class="card-subtitle mb-2 text-muted">
 											07/27
 										</h6>
 										<img
-											src="images/sunny.png"
-											alt="sun"
+											src="http://openweathermap.org/img/wn/${
+												forecastDay.weather[0].icon
+											}@2x.png"
+											alt=""
 											class="dow-icon"
 										/>
 										<p class="card-text">
-											<strong>31°C</strong> | 22°C
+											<strong>${forecastDay.temp.max.toFixed(0)}°
+											</strong> 
+											| 
+											${forecastDay.temp.min.toFixed(0)}°
 										</p>
 									</div>
 								</div>
 							</div>
 						`;
+		}
 	});
 	forecastHTML = forecastHTML + `</div>`;
 	forecastElement.innerHTML = forecastHTML;
@@ -64,7 +77,9 @@ function getForecast(coordinates) {
 	let lat = coordinates.lat;
 	let lon = coordinates.lon;
 
-	let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+	let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+
+	axios.get(apiUrl).then(displayForecast);
 }
 
 function displayWeather(response) {
@@ -128,6 +143,26 @@ function showCelsius(event) {
 	temperatureElement.innerHTML = celsiusTemperature;
 }
 
+function searchLondon(event) {
+	event.preventDefault();
+	search("London");
+}
+
+function searchBerlin(event) {
+	event.preventDefault();
+	search("Berlin");
+}
+
+function searchMadrid(event) {
+	event.preventDefault();
+	search("Madrid");
+}
+
+function searchLisbon(event) {
+	event.preventDefault();
+	search("Lisbon");
+}
+
 let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
@@ -139,5 +174,16 @@ fahrenheitLink.addEventListener("click", showFahrenheit);
 let celsiusLink = document.querySelector("#celsius-option");
 celsiusLink.addEventListener("click", showCelsius);
 
+let londonWeather = document.querySelector("#london");
+londonWeather.addEventListener("click", searchLondon);
+
+let berlinWeather = document.querySelector("#berlin");
+berlinWeather.addEventListener("click", searchBerlin);
+
+let madridWeather = document.querySelector("#madrid");
+madridWeather.addEventListener("click", searchMadrid);
+
+let lisbonWeather = document.querySelector("#lisbon");
+lisbonWeather.addEventListener("click", searchLisbon);
+
 search("Valencia");
-displayForecast();

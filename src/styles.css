@@ -20,8 +20,8 @@ h2 {
 
 .main-card {
 	background: #f5f9fd;
-	max-width: 755px;
-	height: 605px;
+	max-width: 765px;
+	height: 620px;
 	margin: auto;
 }
 
@@ -54,7 +54,7 @@ h2 {
 }
 
 .current-date {
-	margin: 20px 0 0 15px;
+	margin: 15px 0 0 15px;
 	font-size: 22px;
 	color: #939aa9;
 	font-family: "Noto Sans JP", sans-serif;
